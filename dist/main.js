@@ -16,7 +16,7 @@
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".hello {\\r\\n  background-color: bisque;\\r\\n}\\r\\n\\r\\nbody {\\r\\n  background-color: blueviolet;\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://bvs-todo-listapp/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"h1 {\\r\\n  text-align: center;\\r\\n}\\r\\n\\r\\n.card {\\r\\n  width: 95%;\\r\\n  margin: 0 auto;\\r\\n  max-width: 400px;\\r\\n  -webkit-box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.46);\\r\\n  box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.46);\\r\\n}\\r\\n\\r\\n.title-today {\\r\\n  display: flex;\\r\\n  align-items: center;\\r\\n  justify-content: space-between;\\r\\n  margin: 0 auto;\\r\\n  padding: 10px 15px;\\r\\n  border-bottom: 1px solid grey;\\r\\n}\\r\\n\\r\\n.title-today h2 {\\r\\n  margin: 0;\\r\\n}\\r\\n\\r\\n.add-todo-div {\\r\\n  display: flex;\\r\\n  align-items: center;\\r\\n  justify-content: space-between;\\r\\n  padding: 5px 15px;\\r\\n  border-bottom: 1px solid grey;\\r\\n}\\r\\n\\r\\n#add-todo-input {\\r\\n  border: none;\\r\\n  padding: 5px;\\r\\n}\\r\\n\\r\\n::placeholder {\\r\\n  font-size: 1.2em;\\r\\n  font-style: italic;\\r\\n}\\r\\n\\r\\n.todo-list {\\r\\n  margin: 0;\\r\\n  padding-inline-start: 0;\\r\\n}\\r\\n\\r\\n.list-item {\\r\\n  display: flex;\\r\\n  justify-content: space-between;\\r\\n  border-bottom: 1px solid grey;\\r\\n  align-items: center;\\r\\n  padding: 10px 15px;\\r\\n}\\r\\n\\r\\n.checkAndText {\\r\\n  display: flex;\\r\\n  align-items: center;\\r\\n}\\r\\n\\r\\n.checkbox {\\r\\n  margin-right: 10px;\\r\\n}\\r\\n\\r\\n.todo-text {\\r\\n  margin: 0;\\r\\n  font-size: 1.1em;\\r\\n}\\r\\n\\r\\n#clear-all-text {\\r\\n  text-align: center;\\r\\n  font-style: italic;\\r\\n  padding-top: 5px;\\r\\n  padding-bottom: 15px;\\r\\n}\\r\\n\\r\\n#refresh-image,\\r\\n#enter-image {\\r\\n  height: 20px;\\r\\n}\\r\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://bvs-todo-listapp/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -136,7 +136,18 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\n\r\nfunction component() {\r\n  const element = document.createElement('div');\r\n\r\n  // Lodash, now imported by this script\r\n  element.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default().join(['Hello', 'webpack'], ' ');\r\n  element.classList.add('hello');\r\n  \r\n  return element;\r\n}\r\n\r\ndocument.body.appendChild(component());\r\nindex.html\n\n//# sourceURL=webpack://bvs-todo-listapp/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _imgDots_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./imgDots.svg */ \"./src/imgDots.svg\");\n/* eslint-disable no-unused-vars */\n\n\n\n\n\nconst todoItems = [\n  {\n    description: 'Go for a run',\n    completed: false,\n    index: 0,\n  },\n  {\n    description: 'Read 5 pages',\n    completed: false,\n    index: 1,\n  },\n  {\n    description: 'Complete todo list project',\n    completed: false,\n    index: 3,\n  },\n  {\n    description: 'Spend 15 minutes on LinkedIn',\n    completed: false,\n    index: 4,\n  },\n];\n\nlet todoHTML = '';\n\ntodoItems.forEach((item) => {\n  todoHTML\n    += `\n      <li class=\"list-item\">\n      <div class=\"checkAndText\">\n        <input id=\"${item.completed}\" class=\"checkbox\" type=\"checkbox\" />\n        <p class=\"todo-text\" id=\"${item.index}\">${item.description}</p>\n      </div>\n      <img id=\"dots-image\" src=\"${_imgDots_svg__WEBPACK_IMPORTED_MODULE_2__}\" alt=\"three dots image\" />\n      </li>\n   `;\n});\n\nconst todoContainer = document.querySelector('.todo-list');\n\ntodoContainer.innerHTML = todoHTML;\n\n\n//# sourceURL=webpack://bvs-todo-listapp/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/imgDots.svg":
+/*!*************************!*\
+  !*** ./src/imgDots.svg ***!
+  \*************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("module.exports = __webpack_require__.p + \"5a81fdadc22cbf9ad222.svg\";\n\n//# sourceURL=webpack://bvs-todo-listapp/./src/imgDots.svg?");
 
 /***/ })
 
@@ -229,6 +240,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var loda
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

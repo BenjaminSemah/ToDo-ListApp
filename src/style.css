@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  color: green;
 }
 
 .card {
@@ -76,6 +77,20 @@ h1 {
 }
 
 #refresh-image,
-#enter-image {
+#enter-image,
+.trash-image,
+.dots-image {
   height: 20px;
+}
+
+.trash-image {
+  display: none;
+}
+
+.show-icon {
+  display: inline;
+}
+
+.hide-icon {
+  display: none;
 }
