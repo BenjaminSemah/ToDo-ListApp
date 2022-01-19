@@ -1,7 +1,81 @@
-.hello {
-  background-color: bisque;
+h1 {
+  text-align: center;
 }
 
-body {
-  background-color: green;
+.card {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 400px;
+  -webkit-box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.46);
+  box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.46);
+}
+
+.title-today {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border-bottom: 1px solid grey;
+}
+
+.title-today h2 {
+  margin: 0;
+}
+
+.add-todo-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  border-bottom: 1px solid grey;
+}
+
+#add-todo-input {
+  border: none;
+  padding: 5px;
+}
+
+::placeholder {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.todo-list {
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.checkAndText {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.todo-text {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+#clear-all-text {
+  text-align: center;
+  font-style: italic;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+#refresh-image,
+#enter-image {
+  height: 20px;
 }
