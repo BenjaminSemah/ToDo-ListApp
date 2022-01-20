@@ -2,9 +2,9 @@ export const todoInput = document.querySelector('#add-todo-input');
 
 export default class TodoObject {
   constructor() {
-    this.todoArray = localStorage.getItem('todoStorage') 
-    ? JSON.parse(localStorage.getItem('todoStorage')) 
-    : [];
+    this.todoArray = localStorage.getItem('todoStorage')
+      ? JSON.parse(localStorage.getItem('todoStorage'))
+      : [];
   }
 
   addToDo = () => {

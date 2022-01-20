@@ -83,14 +83,19 @@ h1 {
   height: 20px;
 }
 
-/* .trash-image {
-  display: none;
-} */
-
 .show-icon {
   display: inline;
 }
 
 .hide-icon {
   display: none;
+}
+
+.dots-and-trash {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-text[contentEditable="true"] {
+  border: none;
 }
