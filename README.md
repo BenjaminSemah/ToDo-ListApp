@@ -16,20 +16,12 @@
 - JavaScript
 - Webpack
 
-## Getting Started
+### To get a local copy, run the following steps:
 
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-clone repo: `git@github.com:BenjaminSemah/BVS-ToDo-ListApp.git`
-
-then
-`cd BVS-TODO-LISTAPP`
-
-### Install
-
-run `npm install` to install dependencies
+- Clone the repository with `git@github.com:BenjaminSemah/BVS-ToDo-ListApp.git`
+- Open the folder with your code editor
+- Run `npm install` to install all dependencies
+- Run `npm start` and go to `http://localhost:8080//` to launch the server.
 
 ### AUTHOR
 
