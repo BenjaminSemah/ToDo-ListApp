@@ -36,6 +36,29 @@ todoContainer.addEventListener('click', (event) => {
   }
 });
 
+todoContainer.addEventListener('click', (bool) => {
+  const checkStatus = bool.target;
+  const booleanValue = checkStatus.id;
+  const listItem = checkStatus.parentNode.parentNode
+  const checkbox = listItem.querySelector('.checkbox');
+  const description = listItem.querySelector('.todo-text');
+  if (booleanValue === 'false') {
+    // console.log(checkbox)
+    // console.log(description);
+    checkbox.id = "true";
+    console.log(checkbox.id);
+    description.classList.add('strikethrough');
+    //console.log(description.innerHTML);
+  } else if (booleanValue === 'true'){
+    checkbox.id = "false";
+    console.log(checkbox.id);
+    description.classList.remove('strikethrough');
+    //console.log(description.innerHTML);
+  }
+  // newToDo.todoArray = newToDo.todoArray.filter((task) => (task.id === "false"));
+  // updateStorage();
+})
+
 todoContainer.addEventListener('click', (event) => {
   const text = event.target;
   const textParent = text.parentNode.parentNode;
@@ -55,5 +78,7 @@ todoContainer.addEventListener('click', (event) => {
     });
   }
 });
+
+
 
 renderToDo();

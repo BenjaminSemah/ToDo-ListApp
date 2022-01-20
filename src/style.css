@@ -99,3 +99,7 @@ h1 {
 .todo-text[contentEditable="true"] {
   border: none;
 }
+
+.strikethrough {
+  text-decoration: line-through;
+}

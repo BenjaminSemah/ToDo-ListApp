@@ -15,7 +15,7 @@ export const renderToDo = () => {
     += `
     <li class="list-item">
       <div class="checkAndText">
-        <input id="${item.completed}" class="checkbox" type="checkbox" />
+        <input id="${item.completed}" class='checkbox' type="checkbox" />
         <p class="todo-text">${item.description}</p>
       </div>
       <div class ="dots-and-trash">
