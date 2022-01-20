@@ -1,5 +1,6 @@
 h1 {
   text-align: center;
+  color: green;
 }
 
 .card {
@@ -76,6 +77,25 @@ h1 {
 }
 
 #refresh-image,
-#enter-image {
+#enter-image,
+.trash-image,
+.dots-image {
   height: 20px;
+}
+
+.show-icon {
+  display: inline;
+}
+
+.hide-icon {
+  display: none;
+}
+
+.dots-and-trash {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-text[contentEditable="true"] {
+  border: none;
 }

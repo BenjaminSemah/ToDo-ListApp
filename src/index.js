@@ -1,47 +1,59 @@
 /* eslint-disable no-unused-vars */
-
-import _ from 'lodash';
 import './style.css';
-import dotsIcon from './imgDots.svg';
+import { todoInput } from './modules/todoClass.js';
+import { renderToDo, newToDo, todoContainer } from './modules/renderTodo.js';
 
-const todoItems = [
-  {
-    description: 'Go for a run',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Read 5 pages',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Complete todo list project',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Spend 15 minutes on LinkedIn',
-    completed: false,
-    index: 4,
-  },
-];
+const plusIcon = document.querySelector('.plusIcon');
 
-let todoHTML = '';
+function updateStorage() {
+  newToDo.todoArray = newToDo.todoArray.filter((task, index) => {
+    task.index = index + 1;
+    return task;
+  });
+  localStorage.setItem('todoStorage', JSON.stringify(newToDo.todoArray));
+}
 
-todoItems.forEach((item) => {
-  todoHTML
-    += `
-      <li class="list-item">
-      <div class="checkAndText">
-        <input id="${item.completed}" class="checkbox" type="checkbox" />
-        <p class="todo-text" id="${item.index}">${item.description}</p>
-      </div>
-      <img id="dots-image" src="${dotsIcon}" alt="three dots image" />
-      </li>
-   `;
+plusIcon.addEventListener('click', () => {
+  newToDo.addToDo();
+  renderToDo();
+  updateStorage();
 });
 
-const todoContainer = document.querySelector('.todo-list');
+todoInput.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    plusIcon.click();
+  }
+});
 
-todoContainer.innerHTML = todoHTML;
+todoContainer.addEventListener('click', (event) => {
+  const item = event.target;
+  const itemIndex = item.id;
+  const title = item.parentNode.parentNode.querySelector('.todo-text').textContent;
+  if (itemIndex !== '' && itemIndex !== 'false' && itemIndex !== 'true') {
+    newToDo.todoArray = newToDo.todoArray.filter((task) => task.description !== title);
+    newToDo.removeToDo(item);
+    updateStorage();
+  }
+});
+
+todoContainer.addEventListener('click', (event) => {
+  const text = event.target;
+  const textParent = text.parentNode.parentNode;
+  const textEdit = textParent.querySelector('.todo-text');
+  if (text.className === 'dots-image') {
+    const originalText = text.parentNode.parentNode.querySelector('.todo-text').innerHTML;
+    const index = newToDo.todoArray.map((task) => task.description).indexOf(originalText);
+    let updatedText = '';
+    textEdit.contentEditable = true;
+    textEdit.addEventListener('input', () => {
+      updatedText = textEdit.innerHTML;
+      if (updatedText !== originalText) {
+        newToDo.todoArray[index].description = updatedText;
+        newToDo.todoArray = newToDo.todoArray.filter((task) => (task.id !== index));
+        updateStorage();
+      }
+    });
+  }
+});
+
+renderToDo();
