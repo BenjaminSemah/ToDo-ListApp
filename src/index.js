@@ -1,67 +1,68 @@
 /* eslint-disable no-unused-vars */
 
-import _ from 'lodash';
+//import _, { indexOf } from 'lodash';
 import './style.css';
-import dotsIcon from './imgDots.svg';
-import trashIcon from './imgTrash.svg';
+
+
+import { todoInput } from './modules/todoClass';
+import { renderToDo, newToDo, todoContainer } from './modules/renderTodo';
 
 const trashImage = document.querySelectorAll('.trash-image');
 const dotsImage = document.querySelectorAll('.dots-image');
-const todoContainer = document.querySelector('.todo-list');
-const todoInput = document.querySelector('#add-todo-input');
+//const todoContainer = document.querySelector('.todo-list');
+//const todoInput = document.querySelector('#add-todo-input');
 const plusIcon = document.querySelector('.plusIcon') 
 
-let todoArray = localStorage.getItem('todoStorage') ? JSON.parse(localStorage.getItem('todoStorage')) : [];
+//let todoArray = localStorage.getItem('todoStorage') ? JSON.parse(localStorage.getItem('todoStorage')) : [];
 
 function updateStorage() {
-  todoArray = todoArray.filter((task, index) => {
+  newToDo.todoArray = newToDo.todoArray.filter((task, index) => {
     task.index = index + 1;
     return task;
   })
-  localStorage.setItem('todoStorage', JSON.stringify(todoArray));
-  renderToDo();
+  localStorage.setItem('todoStorage', JSON.stringify(newToDo.todoArray));
 }
 
-function addToDo() {
-  const todoId = todoArray.length;
-  if (todoInput.value !== '') {
-  todoArray.push(
-      {
-        description: todoInput.value,
-        completed: false,
-        index: todoId,
-      }
-    )
-    todoInput.value = '';
-  }
-}
+// function addToDo() {
+//   const todoId = todoArray.length;
+//   if (todoInput.value !== '') {
+//   todoArray.push(
+//       {
+//         description: todoInput.value,
+//         completed: false,
+//         index: todoId,
+//       }
+//     )
+//     todoInput.value = '';
+//   }
+// }
 
-function renderToDo() {
-  let todoHTML = '';
-  todoArray.forEach((item) => {
-  todoHTML+= 
-    `
-    <li class="list-item">
-      <div class="checkAndText">
-        <input id="${item.completed}" class="checkbox" type="checkbox" />
-        <p class="todo-text">${item.description}</p>
-      </div>
-      <div class ="dots-and-trash">
-        <img class="dots-image" src="${dotsIcon}" alt="three dots image" />
-        <img class="trash-image" id="${item.index}" src="${trashIcon}" alt="three dots image" />
-      </div>
-    </li>
-    `;
-  });
-  todoContainer.innerHTML = todoHTML;
-}
+// function renderToDo() {
+//   let todoHTML = '';
+//   todoArray.forEach((item) => {
+//   todoHTML+= 
+//     `
+//     <li class="list-item">
+//       <div class="checkAndText">
+//         <input id="${item.completed}" class="checkbox" type="checkbox" />
+//         <p class="todo-text">${item.description}</p>
+//       </div>
+//       <div class ="dots-and-trash">
+//         <img class="dots-image" src="${dotsIcon}" alt="three dots image" />
+//         <img class="trash-image" id="${item.index}" src="${trashIcon}" alt="three dots image" />
+//       </div>
+//     </li>
+//     `;
+//   });
+//   todoContainer.innerHTML = todoHTML;
+// }
 
-function removeToDo(icon) {
-  icon.parentNode.parentNode.remove();
-}
+// function removeToDo(icon) {
+//   icon.parentNode.parentNode.remove();
+// }
 
 plusIcon.addEventListener('click', () => {
-  addToDo();
+  newToDo.addToDo();
   renderToDo();
   updateStorage();
 });
@@ -77,29 +78,33 @@ todoContainer.addEventListener('click', (event) => {
   const itemIndex = item.id;
   const title = item.parentNode.parentNode.querySelector('.todo-text').textContent;
   if (itemIndex !== '' && itemIndex !== "false" && itemIndex !== "true") {
-    todoArray = todoArray.filter(task => task.description !== title);
-    removeToDo(item);
-    updateStorage()
+    newToDo.todoArray = newToDo.todoArray.filter(task => task.description !== title);
+    newToDo.removeToDo(item);
+    updateStorage();
   }
 });
 
+
 todoContainer.addEventListener('click', event => {
   const text = event.target;
-  const textEdit = text.parentNode.parentNode.querySelector('.todo-text');
-  const originalText = text.parentNode.parentNode.querySelector('.todo-text').innerHTML;
-  let updatedText = '';
+  const textParent = text.parentNode.parentNode
+  const textEdit = textParent.querySelector('.todo-text');
   if (text.className === "dots-image") {
+    const originalText = text.parentNode.parentNode.querySelector('.todo-text').innerHTML;
+    const index = newToDo.todoArray.map(task => task.description).indexOf(originalText);
+    let updatedText = '';
     textEdit.contentEditable = true;
     textEdit.addEventListener('input', () => {
       updatedText = textEdit.innerHTML;
-      console.log(originalText);
-      console.log(updatedText);
       if (updatedText !== originalText) {
-        console.log('There is a task update!');
+        newToDo.todoArray[index].description = updatedText;
+        newToDo.todoArray = newToDo.todoArray.filter(task => {
+          return (task.id !== index)
+        });
+        updateStorage();
       }
     })
   }
-  //textEdit.contentEditable = false;
 })
 
 renderToDo();
