@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  color: orange;
+  color: green;
 }
 
 .card {
@@ -83,9 +83,9 @@ h1 {
   height: 20px;
 }
 
-/* .trash-image {
+.trash-image {
   display: none;
-} */
+}
 
 .show-icon {
   display: inline;

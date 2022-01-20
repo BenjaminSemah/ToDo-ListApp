@@ -14,7 +14,12 @@ const plusIcon = document.querySelector('.plusIcon')
 let todoArray = localStorage.getItem('todoStorage') ? JSON.parse(localStorage.getItem('todoStorage')) : [];
 
 function updateStorage() {
+  todoArray = todoArray.filter((task, index) => {
+    task.index = index + 1;
+    return task;
+  })
   localStorage.setItem('todoStorage', JSON.stringify(todoArray));
+  renderToDo();
 }
 
 function addToDo() {
@@ -70,10 +75,31 @@ todoInput.addEventListener('keyup', (e) => {
 todoContainer.addEventListener('click', (event) => {
   const item = event.target;
   const itemIndex = item.id;
+  const title = item.parentNode.parentNode.querySelector('.todo-text').textContent;
   if (itemIndex !== '' && itemIndex !== "false" && itemIndex !== "true") {
-    console.log("Test Works!")
-    todoArray = todoArray.filter((task) => todoArray.indexOf(task) !== Number(itemIndex));
+    todoArray = todoArray.filter(task => task.description !== title);
+    removeToDo(item);
+    updateStorage()
   }
+});
+
+todoContainer.addEventListener('click', event => {
+  const text = event.target;
+  const textEdit = text.parentNode.parentNode.querySelector('.todo-text');
+  const originalText = text.parentNode.parentNode.querySelector('.todo-text').innerHTML;
+  let updatedText = '';
+  if (text.className === "dots-image") {
+    textEdit.contentEditable = true;
+    textEdit.addEventListener('input', () => {
+      updatedText = textEdit.innerHTML;
+      console.log(originalText);
+      console.log(updatedText);
+      if (updatedText !== originalText) {
+        console.log('There is a task update!');
+      }
+    })
+  }
+  //textEdit.contentEditable = false;
 })
 
 renderToDo();
