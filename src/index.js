@@ -3,6 +3,7 @@ import './style.css';
 import { todoInput } from './modules/todoClass.js';
 import { renderToDo, newToDo, todoContainer } from './modules/renderTodo.js';
 
+const clearBtn = document.querySelector('#clear-all-text');
 const plusIcon = document.querySelector('.plusIcon');
 
 function updateStorage() {
@@ -36,39 +37,17 @@ todoContainer.addEventListener('click', (event) => {
   }
 });
 
-todoContainer.addEventListener('click', (bool) => {
-  const checkStatus = bool.target;
-  const booleanValue = checkStatus.id;
-  const listItem = checkStatus.parentNode.parentNode
-  const checkbox = listItem.querySelector('.checkbox');
-  const description = listItem.querySelector('.todo-text');
-  if (booleanValue === 'false') {
-    // console.log(checkbox)
-    // console.log(description);
-    checkbox.id = "true";
-    console.log(checkbox.id);
-    description.classList.add('strikethrough');
-    //console.log(description.innerHTML);
-  } else if (booleanValue === 'true'){
-    checkbox.id = "false";
-    console.log(checkbox.id);
-    description.classList.remove('strikethrough');
-    //console.log(description.innerHTML);
-  }
-  // newToDo.todoArray = newToDo.todoArray.filter((task) => (task.id === "false"));
-  // updateStorage();
-})
-
 todoContainer.addEventListener('click', (event) => {
   const text = event.target;
-  const textParent = text.parentNode.parentNode;
-  const textEdit = textParent.querySelector('.todo-text');
   if (text.className === 'dots-image') {
+    const textParent = text.parentNode.parentNode;
+    const textEdit = textParent.querySelector('.todo-text');
     const originalText = text.parentNode.parentNode.querySelector('.todo-text').innerHTML;
     const index = newToDo.todoArray.map((task) => task.description).indexOf(originalText);
+    console.log(index);
     let updatedText = '';
     textEdit.contentEditable = true;
-    textEdit.addEventListener('input', () => {
+    textEdit.addEventListener('keyup', () => {
       updatedText = textEdit.innerHTML;
       if (updatedText !== originalText) {
         newToDo.todoArray[index].description = updatedText;
@@ -79,6 +58,37 @@ todoContainer.addEventListener('click', (event) => {
   }
 });
 
+todoContainer.addEventListener('change', (bool) => {
+  const checkStatus = bool.target;
+  const listItem = checkStatus.parentNode.parentNode
+  const checkbox = listItem.querySelector('.checkbox');
+  const description = listItem.querySelector('.todo-text');
+  
+  newToDo.todoArray.forEach(task => {
+    if (checkbox.checked) {
+      if (description.innerText === task.description) {
+        task.completed = true;
+        description.classList.add('strikethrough');
+        
+      }
+    } 
+    else {
+      if (description.innerText === task.description) {
+        task.completed = false;
+        description.classList.remove('strikethrough');
+        window.location.reload();
+      }
+    }
+  })
+  updateStorage();
+})
 
+clearBtn.addEventListener('click', () => {
+  newToDo.todoArray = newToDo.todoArray.filter((task) => {
+    return task.completed === false;
+  })
+  updateStorage();
+  renderToDo();
+})
 
 renderToDo();
