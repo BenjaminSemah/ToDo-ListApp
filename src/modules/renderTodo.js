@@ -11,11 +11,13 @@ export const todoContainer = document.querySelector('.todo-list');
 export const renderToDo = () => {
   let todoHTML = '';
   newToDo.todoArray.forEach((item) => {
+    const defaultCompleted = (item.completed === true) ? 'checked' : '';
+
     todoHTML
     += `
     <li class="list-item">
       <div class="checkAndText">
-        <input id="${item.completed}" class="checkbox" type="checkbox" />
+        <input id="${item.completed}" class='checkbox' type="checkbox" ${defaultCompleted}/>
         <p class="todo-text">${item.description}</p>
       </div>
       <div class ="dots-and-trash">
@@ -26,4 +28,13 @@ export const renderToDo = () => {
     `;
   });
   todoContainer.innerHTML = todoHTML;
+
+  const checkboxes = document.querySelectorAll('.checkbox');
+  checkboxes.forEach((box) => {
+    if (box.checked) {
+      box.nextElementSibling.classList.add('strikethrough');
+    } else {
+      box.nextElementSibling.classList.remove('strikethrough');
+    }
+  });
 };
