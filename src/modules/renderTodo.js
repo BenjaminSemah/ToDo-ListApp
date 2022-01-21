@@ -11,8 +11,6 @@ export const todoContainer = document.querySelector('.todo-list');
 export const renderToDo = () => {
   let todoHTML = '';
   newToDo.todoArray.forEach((item) => {
-
-    
     const defaultCompleted = (item.completed === true) ? 'checked' : '';
 
     todoHTML
@@ -31,12 +29,12 @@ export const renderToDo = () => {
   });
   todoContainer.innerHTML = todoHTML;
 
-  const checkboxes = document.querySelectorAll('.checkbox')
-  checkboxes.forEach(box => {
+  const checkboxes = document.querySelectorAll('.checkbox');
+  checkboxes.forEach((box) => {
     if (box.checked) {
       box.nextElementSibling.classList.add('strikethrough');
     } else {
       box.nextElementSibling.classList.remove('strikethrough');
     }
-  })
+  });
 };

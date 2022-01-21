@@ -44,7 +44,6 @@ todoContainer.addEventListener('click', (event) => {
     const textEdit = textParent.querySelector('.todo-text');
     const originalText = text.parentNode.parentNode.querySelector('.todo-text').innerHTML;
     const index = newToDo.todoArray.map((task) => task.description).indexOf(originalText);
-    console.log(index);
     let updatedText = '';
     textEdit.contentEditable = true;
     textEdit.addEventListener('keyup', () => {
@@ -60,35 +59,29 @@ todoContainer.addEventListener('click', (event) => {
 
 todoContainer.addEventListener('change', (bool) => {
   const checkStatus = bool.target;
-  const listItem = checkStatus.parentNode.parentNode
+  const listItem = checkStatus.parentNode.parentNode;
   const checkbox = listItem.querySelector('.checkbox');
   const description = listItem.querySelector('.todo-text');
-  
-  newToDo.todoArray.forEach(task => {
+
+  newToDo.todoArray.forEach((task) => {
     if (checkbox.checked) {
       if (description.innerText === task.description) {
         task.completed = true;
         description.classList.add('strikethrough');
-        
       }
-    } 
-    else {
-      if (description.innerText === task.description) {
-        task.completed = false;
-        description.classList.remove('strikethrough');
-        window.location.reload();
-      }
+    } else if (description.innerText === task.description) {
+      task.completed = false;
+      description.classList.remove('strikethrough');
+      window.location.reload();
     }
-  })
+  });
   updateStorage();
-})
+});
 
 clearBtn.addEventListener('click', () => {
-  newToDo.todoArray = newToDo.todoArray.filter((task) => {
-    return task.completed === false;
-  })
+  newToDo.todoArray = newToDo.todoArray.filter((task) => task.completed === false);
   updateStorage();
   renderToDo();
-})
+});
 
 renderToDo();
