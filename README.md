@@ -3,7 +3,7 @@
 # TO-DO LIST APP
 
 >This app allows users to organize their task efficiently. They can do by making changes 
-(adding, editing and removing to-do items) to the list.
+(add, edit and remove to-do items) to the list.
 
 ## Preview
 ![Preview](./preview.png)
